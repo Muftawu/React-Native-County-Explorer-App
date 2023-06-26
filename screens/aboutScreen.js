@@ -3,6 +3,8 @@ import CardItemList from "../components/card_list";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { LoremIpsum } from "lorem-ipsum";
 import { useNavigation } from "@react-navigation/native";
+import AppInfo from "../database/appInfo";
+
 
 const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -19,17 +21,10 @@ const lorem = new LoremIpsum({
 const AboutScreen = () => {
     const navigation = useNavigation()
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            headerTitle: "About Application",
-        })
-    })
-
     return (
         <View>
-            <Text style={{fontSize: 20, padding: 20}}>
-            {lorem.generateParagraphs(2)}
-            </Text>
+          <Text style={{fontSize:20, paddingTop: 20, fontWeight: "bold", textAlign: "center"}}>About Application</Text>
+            <Text style={{fontSize: 20, padding: 20}}>{AppInfo()}</Text>
         </View>
     )
 }

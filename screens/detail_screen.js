@@ -1,33 +1,57 @@
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { View, Text, StyleSheet, Button, Image, Linking } from "react-native"
+import { ScrollView } from "react-native-gesture-handler";
+
 
 const DetailScreen = () => {
     const route = useRoute()
-    const {id, name, city, image} = route.params
+    const {id, name, city, image, description} = route.params
+    const navigation = useNavigation()
 
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerTitle: "About " + name,
+        })
+    })
+
+    const img = "https://web-production-a388.up.railway.app/images/" + id
+    
     return (
+        <ScrollView>
         <View>
-
-            <Text style={{padding: 10, textAlign: 'center', fontSize: 20}}>{name}</Text>
+            <Text style={{padding: 10, textAlign: 'center', fontSize: 30, fontWeight: "bold"}}>{name}</Text>
 
             <View style={{padding: 20, alignItems: 'center'}}>
-                <Text>Image source: {image}</Text>
 
-            <Image style={styles.img} source={{uri: image }} />
+                <Image style={styles.img} source={{ uri: img }} />
 
-            <Image style={styles.img} source={require("../assets/images/dummy.png")} />
             </View>
+
+
+            <Text style={styles.country_info}>{description}</Text>
+
+            <Button 
+                title="Back to Home"
+                onPress={() => navigation.goBack()}
+                touchSoundDisabled={false}
+                />
         </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     img: {
         height: 200,
-        width: 300,
+        width: 350,
         paddingLeft: 20,
-        borderRadius: 30,
-        }
+        borderRadius: 20,
+        },
+    country_info: {
+        padding: 25,
+        fontSize:20,
+    }
 })
 
 export default DetailScreen;

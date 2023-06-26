@@ -8,7 +8,7 @@ const CardItemList = ({data}) => {
     const renderItem = ({item}) => {
         return (
             <View style={{pading: 10}}>
-            <CardItem id={item.id} name={item.name} city={item.city} image={item.image} />
+            <CardItem id={item.id} name={item.name} city={item.city} image={item.image} description={item.description}/>
             </View>
         )
     }

@@ -13,15 +13,15 @@ export const MainTab = () => {
 
       <Tab.Screen name="Home" component={HomeScreen} 
       options={{
-        tabBarLabel: "Home",
+        title: "Home",
         tabBarIcon: () => <Ionicons name='home' size={32} color="blue" />
       }} />
 
-    <Tab.Screen name="About" component={AboutScreen} 
-        options={{
-          tabBarLabel: "About",
-          tabBarIcon: () => <Ionicons name='information-circle' size={32} color="blue" />
-        }}/>
+      <Tab.Screen name="About" component={AboutScreen} 
+          options={{
+            title: "About",
+            tabBarIcon: () => <Ionicons name='information-circle' size={32} color="blue" />
+          }}/>
 
     </Tab.Navigator>
     

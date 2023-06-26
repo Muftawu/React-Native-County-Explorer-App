@@ -11,18 +11,19 @@ const Stack = createStackNavigator();
 export const MainStack = () => {
 
   return (
-    <Stack.Navigator screenOptions={{headerTintColor: 'blue', headerShown: true}}>
+    <Stack.Navigator  screenOptions={{headerTintColor: 'black', headerShown: true}}>
       <Stack.Screen name="HomeTab" component={MainTab} options={{
-        title: "Know Your Countries",
+        title: "Country Explorer",
         headerLeft: () => (
-          <Ionicons name='flag-sharp' size={35} color="violet" />
+          <Ionicons name='logo-flickr' onPress={() => alert("Countries app with React Native and Django Rest Framework.")} size={35} color="green" />
         ),
         headerRight: () => (
-          <Ionicons name='flag-sharp' size={35} color="violet" />
+          <Ionicons name='chatbox' onPress={() => alert("This service is currently unavailable")} size={35} color="skyblue" />
         )
       }} />
 
       <Stack.Screen name="Detail" component={DetailScreen} />
+
     </Stack.Navigator>
   );
 }

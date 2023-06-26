@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, Button, Image, Linking } from "react-native"
+import { View, Text, ScrollView } from "react-native"
 import CardItemList from "../components/card_list";
 import React,{ useEffect, useState } from "react";
-
+import { ScrollViewBase } from "react-native";
 const HomeScreen = () => {
     const [data, setData] = useState([])
 
@@ -21,13 +21,13 @@ const HomeScreen = () => {
     }, [])
 
     return (
-        <View>
-
-            <Text style={{padding: 20, fontSize:20, textAlign: "center"}}>List of Countries</Text>
-
-            <CardItemList data={data} />
-
-        </View>
+         <View>
+            <Text style={{padding: 20, fontSize:20, textAlign: "center", fontWeight: "bold"}}>List of Countries</Text>
+            <Text style={{paddingBottom: 10, fontSize:15, textAlign: "center"}}>Tap a country for more details</Text>
+        
+                <CardItemList data={data} />
+                
+            </View>
     )
 }
 
